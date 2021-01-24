@@ -22,6 +22,8 @@ Following Synchronous operations
   - auto_approval: `false`
 * Create a new bucket for the stage and save the bucket's info in the Buckets collection.
 * Create a new Cloudfront Distribution and link it to the newly created bucket with some awesome configurations and then, save the cloudfront distribution's information in the CloudFront Distributions collection.
+* Update the bucket policy to allow Cloudfront Distribution to Get and List the Bucket.
+* Configure Error Pages to return the respective page for the Framework.
 * Update the stage object in the Stages array of the repo, with the following items:
   - bucket_id
   - cloudfront_distribution_id
