@@ -9,8 +9,12 @@ Following Synchronous operations
 * Fire event `CREATE_STAGE` with following info:
   - env: production
   - repo_id: `<REPO-ID>`
+  - is_frontend: `true`
+  - is_backend: `false` (future plans)
+  - frontend_type: `REACT|ANGULAR|VUE` (future plans, currently only REACT)
+  - backend_type: `NODEJS` (future plans)
 
-#### Event: CREATE_STAGE
+#### Lambda Event: CREATE_STAGE
 Following Synchronous operations
 * Insert the stage object in the Stages array of the repo, with the following items:
   - env: `<ENV-NAME>`
@@ -21,4 +25,14 @@ Following Synchronous operations
 * Update the stage object in the Stages array of the repo, with the following items:
   - bucket_id
   - cloudfront_distribution_id
+
+#### Lambda Event: STAGE_PROMOTION_FRONTEND
+Following Synchronous operations
+* Received props:
+  - repo_id
+  - to_stage
+* Clone the repository
+* Build using `npm run build`
+* Sync (with --delete flag) the S3 bucket of the stage with the new build artifacts.
+* Invalidate the current repo's stage's Cloudfront Distribution's cache.
 
