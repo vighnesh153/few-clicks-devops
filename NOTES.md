@@ -6,9 +6,11 @@ Following Synchronous operations
   - Stages array (initially empty) 
   - Repo ID
   - Repo Name
+  - latest_commit: `<COMMIT-ID>`
 * Fire event `CREATE_STAGE` with following info:
   - env: production
   - repo_id: `<REPO-ID>`
+  - latest_commit: `<COMMIT-ID>`
   - is_frontend: `true`
   - is_backend: `false` (future plans)
   - frontend_type: `REACT|ANGULAR|VUE` (future plans, currently only REACT)
@@ -20,6 +22,7 @@ Following Synchronous operations
   - env: `<ENV-NAME>`
   - repo_id: `<REPO-ID>` (will be used later and is not redundant)
   - auto_approval: `false`
+  - previous_deployed_commit: `<COMMIT-ID>` (`null` initially)
 * Create a new bucket for the stage and save the bucket's info in the Buckets collection.
 * Create a new Cloudfront Distribution and link it to the newly created bucket with some awesome configurations and then, save the cloudfront distribution's information in the CloudFront Distributions collection.
 * Update the bucket policy to allow Cloudfront Distribution to Get and List the Bucket.
@@ -33,6 +36,7 @@ Following Synchronous operations
 * Received props:
   - repo_id
   - to_stage
+  - latest_commit_id
 * Clone the repository
 * Build using `npm run build`
 * Sync (with --delete flag) the S3 bucket of the stage with the new build artifacts.
