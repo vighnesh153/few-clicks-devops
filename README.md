@@ -1,4 +1,5 @@
-# Few Clicks DevOps
+# Few Clicks DevOps [ARCHIVED] [DEPRECATED]
+## THERE EXISTS AN AWS SERVICE CALLED **AWS AMPLIFY** WHICH DOES THE EXACT SAME THING THAT THIS PROJECT INTENDED TO DO AND MUCH MORE. THIS IS UNFORTUNATE AS I WAS SO EXCITED TO DO THIS BUT NOW IT SEEMS REDUNDANT AND NOW, I AM NO LONGER MOTIVATED TO BUILD THIS.
 
 The intention of this project is to automate the process of deploying any front-end, app built using popular frameworks like Angular, React, Vue, to AWS S3 + AWS Cloudfront and AWS Lambda@Edge Functions.
 
